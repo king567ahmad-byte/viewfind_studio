@@ -1,0 +1,559 @@
+/* ==========================================================================
+   VIEW FIND STUDIO — Editorial Luxury Photography House
+   Inspired by Haute Couture & Editorial Design (Shutter Factory Studio aesthetic)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  --bg-paper: #FBF9F5;
+  --bg-paper-soft: #F4F0E8;
+  --bg-stone: #E8E4DC;
+  --text-ink: #0E0E0C;
+  --text-muted: #6B6862;
+  --color-gold: #C59B27;
+  --color-gold-deep: #A67C1E;
+  --color-marigold: #E5A93C;
+  --border-hairline: rgba(14, 14, 12, 0.12);
+  --border-hairline-strong: rgba(14, 14, 12, 0.22);
+  --border-hairline-light: rgba(251, 249, 245, 0.18);
+  --whatsapp-green: #25D366;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+}
+
+body {
+  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Classes */
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-label {
+  font-family: 'Inter Tight', sans-serif;
+}
+
+.text-goldink {
+  color: var(--color-gold-deep);
+}
+
+.bg-paper {
+  background-color: var(--bg-paper);
+}
+
+.bg-ink {
+  background-color: var(--text-ink);
+}
+
+.text-paper {
+  color: var(--bg-paper);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.border-hairline {
+  border-color: var(--border-hairline);
+}
+
+.border-hairline-strong {
+  border-color: var(--border-hairline-strong);
+}
+
+/* Container Shell */
+.shell {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(24px, 5vw, 72px);
+  padding-right: clamp(24px, 5vw, 72px);
+}
+
+/* Hero Multi-column Infinite Photo Marquee */
+.marquee-column {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.marquee-content-up {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: scrollUp 48s linear infinite;
+}
+
+.marquee-content-down {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: scrollDown 44s linear infinite;
+}
+
+.marquee-column:hover .marquee-content-up,
+.marquee-column:hover .marquee-content-down {
+  animation-play-state: paused;
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+/* Photo Card Elevation & Hover */
+.photo-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--bg-stone);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-card:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 20px 45px rgba(14, 14, 12, 0.28);
+  z-index: 10;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Editorial Buttons */
+.btn-ink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--text-ink);
+  color: var(--bg-paper);
+  border-radius: 9999px;
+  padding: 14px 28px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-ink:hover {
+  background-color: var(--color-gold-deep);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-underline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-ink);
+  border-bottom: 1.5px solid var(--border-hairline-strong);
+  padding-bottom: 3px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-underline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-deep);
+}
+
+.btn-gold-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-gold);
+  padding: 6px 18px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-gold-deep);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.btn-gold-pill:hover {
+  background-color: rgba(197, 155, 39, 0.12);
+  border-color: var(--color-gold-deep);
+}
+
+/* WhatsApp Pulse Indicator */
+.whatsapp-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--whatsapp-green);
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Floating WhatsApp FAB */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: clamp(20px, 3vw, 36px);
+  right: clamp(20px, 3vw, 36px);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: #fff;
+  box-shadow: 0 14px 35px rgba(14, 14, 12, 0.28);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 18px 45px rgba(37, 211, 102, 0.45);
+}
+
+/* Floating Control Panel Button */
+.admin-float-btn {
+  position: fixed;
+  bottom: clamp(20px, 3vw, 36px);
+  left: clamp(20px, 3vw, 36px);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--text-ink);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-gold);
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-float-btn:hover {
+  background-color: var(--color-gold-deep);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(197, 155, 39, 0.4);
+}
+
+/* Lightbox Modal */
+.studio-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(10, 10, 8, 0.96);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.studio-lightbox.active {
+  display: flex;
+}
+
+.studio-lightbox img {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* Package Card Accents */
+.package-card {
+  border-top: 2px solid var(--text-ink);
+  padding-top: 28px;
+  transition: all 0.3s ease;
+}
+
+.package-card:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   FULL LIVE VISUAL IN-PLACE EDITOR SYSTEM (Edit Anything On The Page!)
+   ========================================================================= */
+
+/* Top Sticky Live Editor Bar */
+.live-editor-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background-color: #0E0E0C;
+  color: #FBF9F5;
+  border-bottom: 2px solid var(--color-gold);
+  padding: 10px 20px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  font-family: 'Inter Tight', sans-serif;
+  gap: 12px;
+}
+
+.live-editor-active .live-editor-topbar {
+  display: flex !important;
+}
+
+.live-editor-active nav {
+  top: 54px !important; /* Offset sticky nav while editor bar is active */
+}
+
+/* Visual Outline for Editable Elements when Live Edit is ON */
+.live-editor-active [contenteditable="true"] {
+  outline: 1.5px dashed rgba(197, 155, 39, 0.6) !important;
+  outline-offset: 3px;
+  border-radius: 4px;
+  cursor: text;
+  transition: all 0.15s ease;
+}
+
+.live-editor-active [contenteditable="true"]:hover {
+  outline: 2px dashed #C59B27 !important;
+  background-color: rgba(197, 155, 39, 0.1) !important;
+}
+
+.live-editor-active [contenteditable="true"]:focus {
+  outline: 2px solid #C59B27 !important;
+  background-color: rgba(197, 155, 39, 0.16) !important;
+}
+
+/* Image Click-to-replace Hover Effect in Live Edit Mode */
+.live-editor-active img {
+  cursor: pointer !important;
+  transition: outline 0.2s, filter 0.2s;
+}
+
+.live-editor-active img:hover {
+  outline: 3px solid #C59B27 !important;
+  outline-offset: 2px;
+  filter: brightness(0.9);
+}
+
+/* Image Changer Dialog Modal */
+#image-edit-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background-color: rgba(14, 14, 12, 0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#image-edit-modal.active {
+  display: flex !important;
+}
+
+/* Admin Settings CMS Modal */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background-color: rgba(14, 14, 12, 0.82);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-modal-overlay.active {
+  display: flex !important;
+}
+
+.admin-modal-box {
+  background-color: var(--bg-paper);
+  color: var(--text-ink);
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  border-radius: 20px;
+  border: 1px solid var(--border-hairline-strong);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.96) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.admin-tab-btn {
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-tab-btn:hover {
+  color: var(--text-ink);
+}
+
+.admin-tab-btn.active {
+  color: var(--color-gold-deep);
+  border-bottom-color: var(--color-gold);
+  font-weight: 700;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-hairline-strong);
+  background-color: #fff;
+  color: var(--text-ink);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.admin-input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
+}
+
+/* Toast Message */
+.admin-toast {
+  position: fixed;
+  top: 75px;
+  right: 24px;
+  z-index: 100001;
+  background-color: #0E0E0C;
+  color: #fff;
+  border: 1.5px solid var(--color-gold);
+  padding: 14px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: none;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-toast.show {
+  display: flex;
+  animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth Horizontal & Vertical Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: #C4BFB4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* FAQ Accordion Styling */
+.faq-item {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq-item.active {
+  border-color: var(--color-gold) !important;
+  box-shadow: 0 8px 24px rgba(197, 155, 39, 0.12);
+}
+
+.faq-item.active .faq-trigger i {
+  transform: rotate(180deg);
+  color: var(--color-gold-deep);
+}
+
+.faq-item .faq-answer {
+  transition: all 0.3s ease;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}

@@ -1,0 +1,6 @@
+# robots.txt for View Find Studio (https://viewfindstudio.com)
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://viewfindstudio.com/sitemap.xml
